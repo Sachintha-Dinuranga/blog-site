@@ -1,0 +1,35 @@
+// use prisma-8
+// Contract inferred from the live database schema. Edit as needed, then run `prisma contract emit`.
+
+namespace public {
+  model Posts {
+    id        Uuid               @id(map: "posts_pkey") @default(sql`gen_random_uuid()`)
+    title     String
+    content   String
+    category  String
+    tag       pg.enum(TagType)
+    createdAt TimestamptzString? @default(now()) @map("created_at")
+    updatedAt TimestamptzString? @default(now()) @map("updated_at")
+    comments  Comments[]
+
+    @@map("posts")
+  }
+
+  model Comments {
+    id        Uuid               @id(map: "comments_pkey") @default(sql`gen_random_uuid()`)
+    postId    Uuid               @map("post_id")
+    content   String
+    createdAt TimestamptzString? @default(now()) @map("created_at")
+    updatedAt TimestamptzString? @default(now()) @map("updated_at")
+    post      Posts              @relation(fields: [postId], references: [id], onDelete: Cascade, map: "comments_post_id_fkey", index: false)
+
+    @@map("comments")
+  }
+
+  native_enum TagType {
+    Tech = "Tech"
+    Programming = "Programming"
+    Tutorial = "Tutorial"
+    @@map("tag_type")
+  }
+}
