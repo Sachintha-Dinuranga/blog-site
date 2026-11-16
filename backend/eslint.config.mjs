@@ -12,6 +12,7 @@ export default tseslint.config(
       ".claude/",
       ".cursor/",
       ".devin/",
+      "src/prisma/contract.d.ts",
     ],
   },
   // 2. Apply recommended base JavaScript and TypeScript rules

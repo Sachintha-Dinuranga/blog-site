@@ -23,6 +23,7 @@ export const getAllPosts = async (req: Request, res: Response) => {
       data: allPosts,
     });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -146,6 +147,7 @@ export const updateOnePost = async (req: Request, res: Response) => {
       data: updatePost,
     });
   } catch (error) {
+    console.log(error);
     res.send({
       status: 500,
       message: "Internal server error.",
@@ -174,6 +176,7 @@ export const deleteOnePost = async (req: Request, res: Response) => {
 
     res.send({ status: 204, message: "No Content." });
   } catch (error) {
+    console.log(error);
     res.send({ status: 500, message: "Internal server error." });
   }
 };
