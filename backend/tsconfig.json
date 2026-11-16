@@ -47,5 +47,13 @@
     "resolveJsonModule": true
   },
   "include": ["src/**/*", "prisma.config.ts"],
-  "exclude": ["node_modules", "prisma.config.ts"]
+  "exclude": [
+    "node_modules",
+    "prisma.config.ts",
+    "dist",
+    ".agents",
+    ".claude",
+    ".cursor",
+    ".devin"
+  ]
 }

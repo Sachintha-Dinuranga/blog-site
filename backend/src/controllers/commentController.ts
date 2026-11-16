@@ -25,6 +25,7 @@ export const getAllComments = async (req: Request, res: Response) => {
       data: allComments,
     });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ status: 500, message: "Internal server error!" });
   }
 };
@@ -60,6 +61,7 @@ export const getOneComment = async (req: Request, res: Response) => {
       data: oneComment,
     });
   } catch (error) {
+    console.log(error);
     return res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -107,6 +109,7 @@ export const createNewComment = async (req: Request, res: Response) => {
       data: createComment,
     });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ status: 500, message: "Internal Server error!" });
   }
 };
@@ -166,6 +169,7 @@ export const updateOneComment = async (req: Request, res: Response) => {
       data: updatedComment,
     });
   } catch (error) {
+    console.log(error);
     res.status(500).json({
       status: 500,
       message: "Internal server error!",
@@ -200,6 +204,7 @@ export const deleteOneComment = async (req: Request, res: Response) => {
 
     res.status(204).json({ status: 204, message: "No Content" });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ status: 500, message: "Internal server error!" });
   }
 };
