@@ -5,7 +5,14 @@ import globals from "globals";
 export default tseslint.config(
   // 1. Ignore compiled output and dependencies
   {
-    ignores: ["dist/**", "node_modules/**"],
+    ignores: [
+      "dist/**",
+      "node_modules/**",
+      ".agents/",
+      ".claude/",
+      ".cursor/",
+      ".devin/",
+    ],
   },
   // 2. Apply recommended base JavaScript and TypeScript rules
   eslint.configs.recommended,
