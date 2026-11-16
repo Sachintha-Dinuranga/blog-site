@@ -25,6 +25,10 @@ app.use("/api/v1", v1CommentRoute);
 // Serve Swagger Docs
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
+app.get("/", (req, res) => {
+  res.send("Backend is running!");
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 });

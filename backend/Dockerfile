@@ -10,8 +10,10 @@ RUN npm install
 # Copy the rest of our app into container
 COPY . .
 
+RUN npm run build
+
 # Set port environment variable
-ENV PORT = 3000
+ENV PORT=3000
 
 # Expose the port 
 EXPOSE 3000
